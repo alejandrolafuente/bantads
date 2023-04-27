@@ -5,5 +5,8 @@ export class Gerente {
         public email?: string,
         public cpf?: string,
         public telefone?: string,
+        public numeroClientes?: number,
+        public totalSaldosPositivos?: number,
+        public totalSaldosNegativos?: number,
         ){}
 }
