@@ -1,112 +1,21 @@
-<!-- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.component.css">
-    <title>Autocadastro</title>
-</head>
-
 <body class="gradient">
-
-    <nav id="NAVBAR" class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img id="logo" src="" alt="LOGO"></a>
-            <ul class="navbar-nav">BANTADS
-                <li class="nav-item"><a href="#"></a></li>
-                <li class="nav-item"><a href="#"></a></li>
-                <li class="nav-item"><a href="#"></a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-    </div>
-    <div class="container">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col box">
-
-                <form #formLogin="ngForm">
-                    <h1 class="text-center">Login</h1>
-
-                    <div class="form-group">
-                        <label for="email">Endereço de email</label>
-
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
-                            [(ngModel)]="login.email" placeholder="Seu email" #email="ngModel" required>
-                        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                            <div [hidden]="!email.errors?.['required']">
-                                Digite seu email
-                            </div>
-                        </div>
-
-                        <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com
-                            ninguém.</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <input type="text" class="form-control" id="senha" name="senha" placeholder="Senha"
-                            [(ngModel)]="login.senha" #senha="ngModel" required>
-
-                        <div *ngIf="senha.errors && (senha.dirty || senha.touched)" class="alert alert-danger">
-                            <div [hidden]="!senha.errors?.['required']">
-                                Digite a senha.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Salvar senha</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" (click)="logar()" [disabled]="!formLogin.form.valid">
-                        <i class="fa fa-save" aria-hidden="true"></i>Entrar</button>
-
-                    <p>Ainda não tem uma conta?
-                        <a class="btn btn-secondary" [routerLink]="['/autocadastro']">
-                            <i  aria-hidden="true"></i> clique aqui!
-                        </a>
-                    </p>
-                </form>
-            </div>
-        </div>
-    </div>
-</body> -->
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.component.css">
-    <title>Inicio</title>
-</head>
-
-<!--===============================================================-->
-<!--                        BODY                                   -->
-<!--===============================================================-->
-
-<body class="gradient">
-    <!--==================  NAVBAR  ====================-->
-    
-    <!--==================  NAVBAR  ====================-->
-    <!--==================  Login  ====================-->
     <div class="container ">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-8 box">
                 <div class="row">
                     <!--imagem de login-->
                     <div class="col-md-6 col-lg-6 col-sm-12 d-none d-md-block">
-                        <img id="login_img" src="img/Login_img.png" alt="Login">
+                        <img id="login_img" src="assets/img/Login_img.png">
                     </div>
                     <!--formulário de login-->
                     <div class="col-md-6 col-lg-6 col-sm-12 d-none d-md-block">
                         <form #formLogin="ngForm">
                             <!--logo-->
                             <div id="login_logo_texto" class="d-flex justify-content-center"><img id="login_logo"
-                                    src="img/LOGO.png" alt="BanTads"> BanTads</div>
+                                    src="assets/img/LOGO.png"> BanTads</div>
                             <!--email-->
                             <div class="form-group">
-                                <label for="email">Endereço de email</label>
+                                <label for="email">Endereço de email:</label>
                                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                                     name="email" [(ngModel)]="login.email" placeholder="Seu email" #email="ngModel"
                                     required>
@@ -121,7 +30,7 @@
                             </div>
                             <!--senha-->
                             <div class="form-group">
-                                <label for="senha">Senha</label>
+                                <label for="senha">Senha:</label>
                                 <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"
                                 [(ngModel)]="login.senha" #senha="ngModel" required>
                                 <div *ngIf="senha.errors && (senha.dirty || senha.touched)" class="alert alert-danger">
@@ -144,8 +53,6 @@
                                     <i  aria-hidden="true"></i> clique aqui!
                                 </a>
                             </p>
-
-                            <!-- <p>Ainda não tem uma conta?<a href="/Prototipo/index.html">clique aqui!</a></p> -->
                         </form>
                     </div>
                 </div>
@@ -153,5 +60,4 @@
             </div>
         </div>
     </div>
-    <!--==================  Login  ====================-->
 </body>

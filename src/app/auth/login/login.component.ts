@@ -43,8 +43,10 @@ export class LoginComponent implements OnInit{
             this.loading = false;
             if (this.login.email == 'admin@email') {
               this.router.navigate( ["/administrador"] );
-            } else
-              this.router.navigate( ["/home"] );
+            } else if (this.login.email == 'cliente@email') {
+              this.router.navigate( ["/cliente"] );
+            } else if (this.login.email == 'gerente@email') 
+              this.router.navigate( ["/gerente"] );
           }
           else {
             this.loading = false;

@@ -1,88 +1,102 @@
-<link rel="stylesheet" href="app.component.css">
-<body class="gradient">
-    <nav id="NAVBAR" class="navbar">
-        <div class="container">
-            <!--Logo-->
-            <a id="logo_texto" class="navbar-brand" href="#"><img id="logo" src="img/LOGO.png" alt="LOGO"> BanTads</a>
-            <div *ngIf="usuarioLogado" class="navbar-collapse collapsed justify-content-between" id="navbarContent">
-                <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" (click)="logout()">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <p class="navbar-text mb-0 text-white">
-                            <i class="fa fa-user"></i> {{ usuarioLogado.nome }}
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <router-outlet></router-outlet> 
-</body>
+<div *ngIf="usuarioLogado; else gotoLogin" class="gradient">
+  <nav id="NAVBAR" class="navbar">
+    <div class="container">
+      <a id="logo_texto" class="navbar-brand" href="#"><img id="logo" src="assets/img/LOGO.png" alt="logo">
+        BanTads</a>
+      <!--<div class="navbar-collapse collapsed justify-content-between">-->
+        <ul class="navbar-nav mr-auto">
 
-<!-- <div class="conteiner-fluid">
+          <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
+            <a href="#" routerLink="/cliente">
+              <button class="btn btn-sidebar text-left">
+                <i class="fa-solid fa-home me-2" data-width="24" data-height="24"></i>
+                Inicio
+              </button>
+            </a>
+          </li>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand nav-link" href="#" routerLink="/pessoas">
-            <i class="fa fa-user-edit"></i> {{ title }} </a>
+          <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
+            <a href="#" routerLink="cliente/deposito">
+              <button class="btn btn-sidebar text-left">
+                <i class="fa-solid fa-clipboard-list me-2" data-width="24" data-height="24"></i>
+                Depósito
+              </button>
+            </a>
+          </li>
 
-        <div *ngIf="usuarioLogado" class="navbar-collapse collapsed justify-content-between" id="navbarContent">
-            <ul class="navbar-nav mr-auto">
+          <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
+            <a href="#" routerLink="cliente/saque">
+              <button class="btn btn-sidebar text-left">
+                <i class="fa-solid fa-socks me-2" data-width="24" data-height="24"></i>
+                Saque
+              </button></a>
+          </li>
 
-                <li *ngIf="usuarioLogado.perfil==='ADMINISTRADOR'" class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/usuarios">Usuários</a>
-                </li>
+          <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
+            <a href="#" routerLink="cliente/transferencia">
+              <button class="btn btn-sidebar text-left">
+                <i class="fa-solid fa-people-group me-2" data-width="24" data-height="24"></i>
+                Transferência
+              </button>
+            </a>
+          </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/pessoas">Pessoas</a>
-                </li>
+          <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
+            <a href="#" routerLink="cliente/extrato">
+              <button class="btn btn-sidebar text-left">
+                <i class="fa-solid fa-chart-pie me-2" data-width="24" data-height="24"></i>
+                Consultar Extrato
+              </button>
+            </a>
+          </li>
+          <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
+            <a href="#" routerLink="cliente/alterar-dados">
+              <button class="btn btn-sidebar text-left">
+                <i class="fa-solid fa-chart-pie me-2" data-width="24" data-height="24"></i>
+                Alterar Dados
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="logout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <i class="fa fa-user"></i> {{ usuarioLogado.nome }}
+          </li>
 
-                <li *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='GERENTE'" class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/enderecos">Endereços</a>
-                </li>
-
-                <li *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/cidades">Cidades</a>
-                </li>
-
-                <li *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='FUNC'" class="nav-item">
-                    <a class="nav-link" href="#" routerLink="/estados">Estados</a>
-                </li>
-
-                <li class="nav-item" ngbDropdown>
-                    <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
-                        Cadastros </a>
-                    <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-
-                        <a ngbDropdownItem href="#" routerLink="/pessoas" (click)="$event.preventDefault()">Pessoas</a>
-
-                        <a *ngIf="usuarioLogado.perfil==='ADMIN'" ngbDropdownItem href="#" routerLink="/usuarios"
-                            (click)="$event.preventDefault()">Usuários</a>
-
-                        <a *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='GERENTE'" ngbDropdownItem
-                            href="#" routerLink="/enderecos" (click)="$event.preventDefault()">Endereços</a>
-
-                        <a *ngIf="usuarioLogado.perfil==='GERENTE'" ngbDropdownItem href="#" routerLink="/cidades"
-                            (click)="$event.preventDefault()">Cidades</a>
-
-                        <a *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='FUNC'" ngbDropdownItem
-                            href="#" routerLink="/estados" (click)="$event.preventDefault()">Estados</a>
-                    </div>
-                </li>
-            </ul>
-
-            <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="logout()">Logout</a>
-                </li>
-                <li class="nav-item">
-                    <p class="navbar-text mb-0 text-white">
-                        <i class="fa fa-user"></i> {{ usuarioLogado.nome }}
-                    </p>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        </ul>
+    </div>
+  </nav>
+  <div id="content">
     <router-outlet></router-outlet>
-</div> -->
+  </div>
+</div>
+<ng-template #gotoLogin>
+  <router-outlet></router-outlet>
+</ng-template>
+
+<!-- <li *ngIf="usuarioLogado.perfil==='FUNCIONARIO'">
+    <a href="#" routerLink="/funcionario">
+      <button class="btn btn-sidebar text-left">
+        <i class="fa-solid fa-home me-2" data-width="24" data-height="24"></i>
+        Inicio
+      </button>
+    </a>
+  </li>
+
+  <li *ngIf="usuarioLogado.perfil==='FUNCIONARIO'">
+    <a href="#" routerLink="funcionario/pesquisar-pedidos">
+      <button class="btn btn-sidebar text-left">
+        <i class="fa-solid fa-clipboard-list me-2" data-width="24" data-height="24"></i>
+        Pedidos
+      </button>
+    </a>
+  </li>
+
+  <li *ngIf="usuarioLogado.perfil==='FUNCIONARIO'">
+    <a href="#" routerLink="funcionario/listar-roupas">
+      <button class="btn btn-sidebar text-left">
+        <i class="fa-solid fa-socks me-2" data-width="24" data-height="24"></i>
+        Roupas
+      </button></a>
+  </li> -->

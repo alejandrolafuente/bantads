@@ -33,7 +33,7 @@ export class LoginService {
       if (login.email == "admin@email") {
         usu = new Usuario(1, "Administrador", login.email, login.senha, "ADMINISTRADOR");
       }
-      else if (login.email == "ger@email") {
+      else if (login.email == "gerente@email") {
         usu = new Usuario(1, "Gerente", login.email, login.senha, "GERENTE");
       }
       return of(usu);
