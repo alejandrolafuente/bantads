@@ -1,6 +1,6 @@
 export class Cliente {
     constructor(
-        public id?: number, // precisa de id ou a chave serah o cpf?
+        public id?: number, // 
         public nome?: string,
         public email?: string,
         public cpf?: string,

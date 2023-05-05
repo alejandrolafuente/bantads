@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="listar-gerente.component.css">
+
+<body class="gradient">
+
+  <div class="container">
+    <span>Seja bem vindo Administrador!</span>
+    <div class="row box">
+      <h1 class="text-center">Consultar todos os gerentes</h1>
+      <div class="justify-content-end">
+        <p>
+          <label for="Pesquisar">Consultar Gerente <input class="form-control" id="myInput" type="text"
+              placeholder="Search.."></label>
+          <button type="submit" class="btn btn-outline-primary">Pesquisar</button>
+        </p>
+      </div>
+      <div>
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">CPF</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Telefone</th>
+              <th class="text-center">
+                <a [routerLink]="['/administrador/novo']" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+                  <i class="fa fa-plus" aria-hidden="true"></i> Novo
+                </a>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let gerente of gerentes">
+              <td>{{gerente.nome}}</td>
+              <td>{{gerente.cpf}}</td>
+              <td>{{gerente.email}}</td>
+              <td>{{gerente.telefone}}</td>
+              <td class="text-center" style="width: 300px">
+                <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info"
+                  [routerLink]="['/administrador/editar', gerente.id]">
+                  <i class="fa fa-edit" aria-hidden="true"></i>Editar
+                </a>
+                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger mx-2" (click)="remover($event, gerente)">
+                  <i class="fa fa-times" aria-hidden="true"></i>Remover
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p *ngIf="gerentes.length==0">Nenhum Gerente Cadastrado</p>
+        <td><button type="submit" class="btn btn-outline-primary" [routerLink]="['/administrador']">Voltar</button></td>
+    </div>
+  </div>

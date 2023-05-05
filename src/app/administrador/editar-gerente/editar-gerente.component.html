@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="editar-gerente.component.css">
+
+<body class="gradient">
+
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col box">
+
+                <form #formGerente="ngForm">
+                    <h2 class="text-center">Novo Gerente</h2>
+
+                    <div class="form-group">
+                        <label for="Nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" minlength="2" placeholder="nome"
+                            [(ngModel)]="gerente.nome" #nome="ngModel" required>
+                        <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+                            <div [hidden]="!nome.errors?.['required']"> Digite o nome do Gerente </div>
+                            <div [hidden]="!nome.errors?.['minlength']"> O nome deve conter ao menos dois caracteres
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Endereço de email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@email.com"
+                            [(ngModel)]="gerente.email" #email="ngModel" required>
+                        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                            <div [hidden]="!email.errors?.['required']"> Digite o email</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="mostrar CPF"
+                            disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone"
+                            placeholder="(xx)00000-0000" [(ngModel)]="gerente.telefone" #telefone="ngModel" required>
+                        <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="alert alert-danger">
+                            <div [hidden]="!telefone.errors?.['required']"> Digite o Telefone</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" (click)="atualizar()"
+                            [disabled]="!formGerente.valid">
+                            <i class="fa fa save" aria-hidden="true"></i> Atualizar
+                        </button>
+                        <a class="btn btn-secondary" [routerLink]="['/administrador/listar']">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
