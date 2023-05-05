@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './auth/services/login.service';
+import { LoginService } from './auth/services';
 import { Usuario } from './shared';
 
 @Component({
@@ -22,6 +22,6 @@ export class AppComponent {
 
   logout() {
     this.loginService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then(r => true);
   }
 }
