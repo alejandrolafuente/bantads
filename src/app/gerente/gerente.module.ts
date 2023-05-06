@@ -4,10 +4,18 @@ import { GerenteService } from './services';
 import { HomeGerenteComponent } from './home-gerente/home-gerente.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
+import { VerClienteComponent } from './ver-cliente/ver-cliente.component';
+import { MelhoresClientesComponent } from './melhores-clientes/melhores-clientes.component';
+import { RejeitarClienteComponent } from './rejeitar-cliente/rejeitar-cliente.component';
 
 @NgModule({
   declarations: [
-    HomeGerenteComponent
+    HomeGerenteComponent,
+    ListarClientesComponent,
+    VerClienteComponent,
+    MelhoresClientesComponent,
+    RejeitarClienteComponent
   ],
   imports: [
     CommonModule,

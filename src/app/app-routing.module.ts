@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeAdministradorComponent } from './administrador';
 import { ListarGerenteComponent } from './administrador';
-import { InserirGerenteComponent } from './administrador';  
+import { InserirGerenteComponent } from './administrador';
 import { EditarGerenteComponent } from './administrador';
 import { LoginRoutes } from './auth/auth-routing.module';
 import { EmitirRelatorioComponent } from './administrador';
@@ -14,6 +14,8 @@ import { FazerSaqueComponent } from './cliente/fazer-saque/fazer-saque.component
 import { FazerTransferenciaComponent } from './cliente/fazer-transferencia/fazer-transferencia.component';
 import { ConsultarExtratoComponent } from './cliente/consultar-extrato/consultar-extrato.component';
 import { AlterarDadosComponent } from './cliente/alterar-dados/alterar-dados.component';
+import {ListarClientesComponent} from "./gerente/listar-clientes/listar-clientes.component";
+import {VerClienteComponent} from "./gerente/ver-cliente/ver-cliente.component";
 
 const routes: Routes = [
   {
@@ -21,31 +23,31 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  { path: 'administrador', 
+  { path: 'administrador',
     redirectTo: 'administrador/home'
   },
-  { path: 'administrador/home', 
+  { path: 'administrador/home',
     component: HomeAdministradorComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'ADMINISTRADOR'
     }
   },
-  { path: 'administrador/listar', 
+  { path: 'administrador/listar',
     component: ListarGerenteComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'ADMINISTRADOR'
     }
   },
-  { path: 'administrador/novo', 
+  { path: 'administrador/novo',
     component: InserirGerenteComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'ADMINISTRADOR'
     }
   },
-  { 
+  {
     path: 'administrador/editar/:id',
     component: EditarGerenteComponent,
     canActivate: [AuthGuard],
@@ -53,7 +55,7 @@ const routes: Routes = [
       role: 'ADMINISTRADOR, GERENTE'
     }
   },
-  { path: 'administrador/relatorio', 
+  { path: 'administrador/relatorio',
     component: EmitirRelatorioComponent,
     canActivate: [AuthGuard],
     data: {
@@ -61,45 +63,45 @@ const routes: Routes = [
     }
   },
   // Rotas para o Cliente:
-  { path: 'cliente', 
+  { path: 'cliente',
     redirectTo: 'cliente/home'
   },
-  { path: 'cliente/home', 
+  { path: 'cliente/home',
     component: HomeClienteComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'CLIENTE'
     }
   },
-  { path: 'cliente/deposito', 
+  { path: 'cliente/deposito',
     component: FazerDepositoComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'CLIENTE'
     }
   },
-  { path: 'cliente/saque', 
+  { path: 'cliente/saque',
     component: FazerSaqueComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'CLIENTE'
     }
   },
-  { path: 'cliente/transferencia', 
+  { path: 'cliente/transferencia',
     component: FazerTransferenciaComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'CLIENTE'
     }
   },
-  { path: 'cliente/extrato', 
+  { path: 'cliente/extrato',
     component: ConsultarExtratoComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'CLIENTE'
     }
   },
-  { path: 'cliente/alterar-dados', 
+  { path: 'cliente/alterar-dados',
     component: AlterarDadosComponent,
     canActivate: [AuthGuard],
     data: {
@@ -107,18 +109,30 @@ const routes: Routes = [
     }
   },
   // Rotas para o Gerente:
-  { path: 'gerente', 
+  { path: 'gerente',
     redirectTo: 'gerente/home'
   },
-  { path: 'gerente/home', 
+  { path: 'gerente/home',
     component: HomeGerenteComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'GERENTE'
     }
   },
-  
-
+  { path: 'gerente/listar-clientes',
+    component: ListarClientesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'GERENTE'
+    }
+  },
+  { path: 'gerente/ver-clientes',
+    component: VerClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'GERENTE'
+    }
+  },
   ...LoginRoutes
 ];
 
