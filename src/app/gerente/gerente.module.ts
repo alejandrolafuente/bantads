@@ -4,10 +4,12 @@ import { GerenteService } from './services';
 import { HomeGerenteComponent } from './home-gerente/home-gerente.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ConsultarTodosClientesComponent } from './consultar-todos-clientes/consultar-todos-clientes.component';
 
 @NgModule({
   declarations: [
-    HomeGerenteComponent
+    HomeGerenteComponent,
+    ConsultarTodosClientesComponent
   ],
   imports: [
     CommonModule,
