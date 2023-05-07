@@ -1,9 +1,126 @@
-<div *ngIf="usuarioLogado; else gotoLogin" class="gradient">
+<body class="gradient">
+  <!--==================  NAVBAR  ====================-->
+  <div *ngIf="usuarioLogado; else gotoLogin">
+    <header>
+      <div class="container" id="nav-container">
+        <nav id="navbar" class="navbar navbar-expand lg fixed-top">
+
+          <!--Logo-->
+          <a id="logo_texto" class="navbar-brand nav-link" href="#">
+            <img id="logo" src="assets/img/LOGO.png" alt="logo"> BanTads
+          </a>
+          <!--Logo-->
+
+          <!--Links da Navbar-->
+          <div class="collapse navbar-collapse justify-content-end">
+            <div class="navbar-nav">
+
+              <!-------------------- Links  do Cliente ---------------------------------------------->
+              <!--Inicio-->
+              <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#" routerLink="/cliente">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-home me-2" data-width="24" data-height="24"></i>
+                  Inicio
+                </button>
+              </a>
+
+              <!--Depósito-->
+              <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#"
+                routerLink="cliente/deposito">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-credit-card me-2" data-width="24" data-height="24"></i>
+                  Depósito
+                </button>
+              </a>
+
+              <!--Saque-->
+              <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#" routerLink="cliente/saque">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-credit-card me-2" data-width="24" data-height="24"></i>
+                  Saque
+                </button>
+              </a>
+
+              <!--Transferencia-->
+              <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#"
+                routerLink="cliente/transferencia">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-credit-card me-2" data-width="24" data-height="24"></i>
+                  Transferência
+                </button>
+              </a>
+
+
+              <!--Extrato-->
+              <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#"
+                routerLink="cliente/extrato">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-file me-2" data-width="24" data-height="24"></i>
+                  Consultar Extrato
+                </button>
+              </a>
+
+              <!--Alterar dados-->
+              <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#"
+                routerLink="cliente/alterar-dados">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-address-card me-2" data-width="24" data-height="24"></i>
+                  Alterar Dados
+                </button>
+              </a>
+
+              <!-------------------- Links  do Gerente ---------------------------------------------->
+              <a *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item nav-link" href="#" routerLink="/gerente">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-home me-2" data-width="24" data-height="24"></i>
+                  Inicio
+                </button>
+              </a>
+
+              <!--Depósito-->
+              <a *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item nav-link" href="#"
+                routerLink="gerente/listar-clientes">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-people-group me-2" data-width="24" data-height="24"></i>
+                  Clientes
+                </button>
+              </a>
+
+              <!--Nome do Usuário-->
+              <a class="nav-item nav-link" href="#">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa fa-user"></i> {{ usuarioLogado.nome }}
+                </button>
+              </a>
+
+
+              <!--Sair-->
+              <a class="nav-item nav-link" id="logout" href="#" (click)="logout()">
+                <button class="btn btn-danger">
+                  Logout
+                </button>
+              </a>
+
+            </div>
+          </div>
+          <!--Links da Navbar-->
+        </nav><br><br><br>
+
+      </div>
+    </header>
+    <!--==================  NAVBAR  ====================-->
+    <div id="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+<ng-template #gotoLogin>
+    <router-outlet></router-outlet>
+</ng-template>
+    <!-- <div *ngIf="usuarioLogado; else gotoLogin" class="gradient">
   <nav id="NAVBAR" class="navbar">
     <div class="container">
       <a id="logo_texto" class="navbar-brand" href="#"><img id="logo" src="assets/img/LOGO.png" alt="logo">
         BanTads</a>
-      <!--<div class="navbar-collapse collapsed justify-content-between">-->
         <ul class="navbar-nav mr-auto">
 
           <li *ngIf="usuarioLogado.perfil==='CLIENTE'">
@@ -73,30 +190,4 @@
 </div>
 <ng-template #gotoLogin>
   <router-outlet></router-outlet>
-</ng-template>
-
-<!-- <li *ngIf="usuarioLogado.perfil==='FUNCIONARIO'">
-    <a href="#" routerLink="/funcionario">
-      <button class="btn btn-sidebar text-left">
-        <i class="fa-solid fa-home me-2" data-width="24" data-height="24"></i>
-        Inicio
-      </button>
-    </a>
-  </li>
-
-  <li *ngIf="usuarioLogado.perfil==='FUNCIONARIO'">
-    <a href="#" routerLink="funcionario/pesquisar-pedidos">
-      <button class="btn btn-sidebar text-left">
-        <i class="fa-solid fa-clipboard-list me-2" data-width="24" data-height="24"></i>
-        Pedidos
-      </button>
-    </a>
-  </li>
-
-  <li *ngIf="usuarioLogado.perfil==='FUNCIONARIO'">
-    <a href="#" routerLink="funcionario/listar-roupas">
-      <button class="btn btn-sidebar text-left">
-        <i class="fa-solid fa-socks me-2" data-width="24" data-height="24"></i>
-        Roupas
-      </button></a>
-  </li> -->
+</ng-template> -->

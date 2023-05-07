@@ -14,6 +14,8 @@ import { FazerSaqueComponent } from './cliente/fazer-saque/fazer-saque.component
 import { FazerTransferenciaComponent } from './cliente/fazer-transferencia/fazer-transferencia.component';
 import { ConsultarExtratoComponent } from './cliente/consultar-extrato/consultar-extrato.component';
 import { AlterarDadosComponent } from './cliente/alterar-dados/alterar-dados.component';
+import { InserirSolicitacaoComponent } from './cadastro/inserir-solicitacao/inserir-solicitacao.component';
+import { ListarClientesComponent } from './gerente/listar-clientes/listar-clientes.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,11 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  // Rota para o Cadastro Inicial:
+  { path: 'autocadastro', 
+    component: InserirSolicitacaoComponent
+  },
+
   { path: 'administrador', 
     redirectTo: 'administrador/home'
   },
@@ -112,6 +119,13 @@ const routes: Routes = [
   },
   { path: 'gerente/home', 
     component: HomeGerenteComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'GERENTE'
+    }
+  },
+  { path: 'gerente/listar-clientes', 
+    component: ListarClientesComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'GERENTE'

@@ -1,0 +1,38 @@
+<body class="gradient">
+    <div class="container">
+        <div class="row box">
+            <h1 class="text-center">Consultar todos os clientes</h1>
+            <div class="justify-content-end">
+                <p>
+                    <label for="Pesquisar">Consultar Cliente <input class="form-control" id="myInput" type="text"
+                            placeholder="Search.."></label>
+                    <button type="submit" class="btn btn-outline-primary">Pesquisar</button>
+                </p>
+            </div>
+            <div>
+
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col"> Saldo da conta </th>
+                            <th scope="col"> Visualizar </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let conta of contas">
+                            <td>{{conta.cpfCliente}}</td>
+                            <td>{{conta.nomeCliente}}</td>
+                            <td>Curitiba</td>
+                            <td>Paraná</td>
+                            <td>{{conta.saldoCliente}}</td>
+                            <td><button type="submit" class="btn btn-outline-primary">Visualizar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                </div>
+            </div>

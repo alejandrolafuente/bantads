@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente';
 import { GerenteModule } from './gerente';
 import { AdministradorModule } from './administrador';
+import { CadastroModule } from './cadastro';
 import { AuthModule } from './auth';
 import { SharedModule } from './shared';
 import { HomeComponent } from './home';
@@ -21,6 +22,7 @@ import { HomeComponent } from './home';
     ClienteModule,
     GerenteModule,
     AdministradorModule,
+    CadastroModule,
     AuthModule,
     SharedModule
   ],

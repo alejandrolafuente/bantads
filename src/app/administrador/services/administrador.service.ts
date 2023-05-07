@@ -16,6 +16,7 @@ export class AdministradorService {
     const gerentes = localStorage[LS_CHAVE];
     return gerentes ? JSON.parse(gerentes) : [];
   }
+  
   inserirGerente(gerente: Gerente): void{
     const gerentes = this.listagemInicial();
     gerente.id = new Date().getTime();

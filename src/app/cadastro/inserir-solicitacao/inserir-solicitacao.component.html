@@ -1,0 +1,108 @@
+<body class="gradient">
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col box">
+                <form #formCliente="ngForm">
+
+                    <h1 class="text-center">Cadastro BanTADS</h1>
+
+                    <div class="form-group">
+                        <label for="Nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome"
+                            [(ngModel)]="cliente.nome" #nome="ngModel" minlength="2" required>
+                        <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+                            <div [hidden]="!nome.errors?.['required']"> Digite seu CPF </div>
+                            <div [hidden]="!nome.errors?.['minlength']"> O nome deve conter ao menos dois caracteres
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF"
+                            [(ngModel)]="cliente.cpf" #cpf="ngModel" required>
+                        <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
+                            <div [hidden]="!cpf.errors?.['required']"> Digite seu CPF </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Telefone">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone"
+                            [(ngModel)]="cliente.telefone" #telefone="ngModel" required>
+                        <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="alert alert-danger">
+                            <div [hidden]="!telefone.errors?.['required']"> Digite seu Telefone </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Salario">Salario</label>
+                        <input type="number" class="form-control" id="salario" name="salario" placeholder="Salario"
+                            [(ngModel)]="cliente.salario" #salario="ngModel" required>
+                        <div *ngIf="salario.errors && (salario.dirty || salario.touched)" class="alert alert-danger">
+                            <div [hidden]="!salario.errors?.['required']"> Digite seu Salario</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" class="form-control" id="cep" name="cep" placeholder="cep"
+                            [(ngModel)]="cliente.cep" #cep="ngModel" required>
+                        <div *ngIf="cep.errors && (cep.dirty || cep.touched)" class="alert alert-danger">
+                            <div [hidden]="!cep.errors?.['required']"> Digite seu CEP</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rua">Rua</label>
+                        <input type="text" class="form-control" id="rua" name="rua" placeholder="rua"
+                            [(ngModel)]="cliente.rua" #rua="ngModel" required>
+                        <div *ngIf="rua.errors && (rua.dirty || rua.touched)" class="alert alert-danger">
+                            <div [hidden]="!rua.errors?.['required']"> Digite o nome da rua</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="bairro"
+                            [(ngModel)]="cliente.bairro" #bairro="ngModel" required>
+                        <div *ngIf="bairro.errors && (bairro.dirty || bairro.touched)" class="alert alert-danger">
+                            <div [hidden]="!bairro.errors?.['required']"> Digite o nome do bairro</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Numero">numero</label>
+                        <input type="number" class="form-control" id="numero" name="numero" placeholder="numero"
+                            [(ngModel)]="cliente.numero" #numero="ngModel" required>
+                        <div *ngIf="numero.errors && (numero.dirty || numero.touched)" class="alert alert-danger">
+                            <div [hidden]="!numero.errors?.['required']"> Digite o numero do Endereço</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Endereço de email</label>
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                            placeholder="Seu email" [(ngModel)]="cliente.email" #email="ngModel" required>
+                        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                            <div [hidden]="!email.errors?.['required']"> Digite seu email</div>
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com
+                            ninguém.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" (click)="inserir()"
+                            [disabled]="!formCliente.form.valid">
+                            <i class="fa fa save" aria-hidden="true"></i> Criar Conta
+                        </button>
+                        <a class="btn btn-secondary" [routerLink]="['/login']">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                        </a>
+                    </div>
+                    <p>Já tem uma conta?<a href="#" [routerLink]="['/login']">clique aqui!</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

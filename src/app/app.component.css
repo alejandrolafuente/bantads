@@ -2,15 +2,48 @@
                 Universal
   --------------------------------------*/
 
-  body{
-    box-sizing: border-box;
-    background-color: rgb(43, 43, 43);
+body {
+  box-sizing: border-box;
+  background-color: rgb(43, 43, 43);
 }
 
 /*--------------------------------------
                 Navbar
   --------------------------------------*/
-#NAVBAR{
+#navbar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.418);
+  color: white;
+  padding: 0px 20px 0px 20px;
+}
+
+#logo {
+  width: 50px;
+}
+
+#logo_texto {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.nav-link button {
+  color: aliceblue;
+  margin: 0 5px 0 5px;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: orange !important;
+}
+
+#logout {
+  margin: 0 15px 0 15px;
+}
+
+/* #NAVBAR{
     background-color: rgba(0, 0, 0, 0.418);
     color: white;
 }
@@ -41,86 +74,89 @@
     color: white;
     font-size: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+} */
 
 /*--------------------------------------
                 Login
   --------------------------------------*/
 
-  #login_logo{
-    width: 100px;
-    margin-left: 10px;
-  }
+#login_logo {
+  width: 100px;
+  margin-left: 10px;
+}
 
-  #login_logo_texto{
-    font-size: 50px;
-    font-weight: 900;
-  }
+#login_logo_texto {
+  font-size: 50px;
+  font-weight: 900;
+}
 
 
-  #login_img{/*imagem lateral*/
-    border-radius: 20px;
-  }
+#login_img {
+  /*imagem lateral*/
+  border-radius: 20px;
+}
 
 /*--------------------------------------
                 Conteúdo
   --------------------------------------*/
 
-   .box{
-    margin: 30px 0 0 0;
-    background-color: rgba(255, 255, 255, 0.774);
-    border-radius: 20px;
-    padding: 50px;
-  }
+.box {
+  margin: 30px 0 0 0;
+  background-color: rgba(255, 255, 255, 0.774);
+  border-radius: 20px;
+  padding: 50px;
+}
 
-   .box div{
-    margin-bottom: 10px;
-   }
+.box div {
+  margin-bottom: 10px;
+}
 
 /*--------------------------------------
             Plano de Fundo
   --------------------------------------*/
 
-  .gradient {
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(0deg, #947900, #804800, #742100);
-    background-size: 300% 300%;
-    animation: colors 30s ease infinite;
+.gradient {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(0deg, #947900, #804800, #742100);
+  background-size: 300% 300%;
+  animation: colors 30s ease infinite;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
   }
 
-  @keyframes colors {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
   }
 
-  @media (max-width: 600px) {
-    .text {
-      font-size: 1.5rem;
-      padding: 1rem 2rem;
-    }
+  100% {
+    background-position: 0% 50%;
   }
+}
+
+@media (max-width: 600px) {
+  .text {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+}
 
 
 /*--------------------------------------
             Cliente
   --------------------------------------*/
-  
-  .box_saldo_verde{
-    background-color: rgba(116, 252, 116, 0.575);
-    color: white;
-    font-size: 40px;
-  }
 
-  .box_saldo_vermelho{
-    background-color: rgba(255, 72, 72, 0.651);
-    color: white;
-    font-size: 40px;
-  }
+.box_saldo_verde {
+  background-color: rgba(116, 252, 116, 0.575);
+  color: white;
+  font-size: 40px;
+}
+
+.box_saldo_vermelho {
+  background-color: rgba(255, 72, 72, 0.651);
+  color: white;
+  font-size: 40px;
+}
