@@ -19,7 +19,7 @@
                             <td>{{conta.nomeCliente}}</td>
                             <td>{{conta.salario}}</td>
                             <td><button type="submit" class="btn btn-outline-success" (click)="aprovar(conta.cpfCliente ? conta.cpfCliente : '')">Aprovar</button></td>
-                            <td><button type="submit" class="btn btn-outline-danger">Recusar</button></td>
+                            <td><button type="submit" class="btn btn-outline-danger" (click)="recusar(conta.cpfCliente ? conta.cpfCliente : '')">Recusar</button></td>
                         </tr>
                     </tbody>
                 </table>

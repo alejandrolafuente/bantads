@@ -12,6 +12,8 @@ export class Cliente {
         public numero?: number,
         public telefone?: string,
         public salario?: number,
+        public cidade?: string,
+        public estado?: string
        //public conta?: Conta // ==> Este atributo precisa se o cpf vincula com conta? 
         ){}
 }

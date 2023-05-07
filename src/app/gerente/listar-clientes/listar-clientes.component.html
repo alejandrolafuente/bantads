@@ -26,13 +26,15 @@
                         <tr *ngFor="let conta of contas">
                             <td>{{conta.cpfCliente}}</td>
                             <td>{{conta.nomeCliente}}</td>
-                            <td>Curitiba</td>
-                            <td>Paraná</td>
+                            <td>{{conta.cidade}}</td>
+                            <td>{{conta.estado}}</td>
                             <td>{{conta.saldoCliente}}</td>
                             <td><button type="submit" class="btn btn-outline-primary">Visualizar</button></td>
+                            <td><button type="submit" class="btn btn-xs btn-outline-danger mx-2" (click)="remover($event, conta)">Remover</button></td>
                         </tr>
                     </tbody>
                 </table>
+                <p *ngIf="contas.length==0">Nenhum cliente cadastrado para o Gerente</p>
                 <div>
                 </div>
             </div>

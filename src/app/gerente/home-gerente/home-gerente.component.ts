@@ -61,11 +61,18 @@ export class HomeGerenteComponent implements OnInit {
     if (cliente && conta) {
       this.gerenteService.inserirCliente(cliente);
       this.gerenteService.inserirConta(conta);
-      this.cadastroService.removerConta(cpf); // Remova apenas no serviço de cadastro
-      this.cadastroService.removerCliente(cpf); // Remova apenas no serviço de cadastro
+      this.cadastroService.removerConta(cpf); // Remove apenas no serviço de cadastro
+      this.cadastroService.removerCliente(cpf); // Remove apenas no serviço de cadastro
       window.location.reload();
     }
 
+  }
+
+  recusar(cpf: string) {
+      this.cadastroService.removerConta(cpf); // Remove do cadastro
+      this.cadastroService.removerCliente(cpf); // Remove do cadastro
+      window.location.reload();
+  
   }
 
 }

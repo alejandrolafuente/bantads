@@ -16,8 +16,19 @@ export class GerenteService {
     return clientes ? JSON.parse(clientes) : [];
   }
 
-  listagemContas(): Conta[] {
+  // listagemContas(): Conta[] { // deve retornar um vetor ordenado
+  //   const contas = localStorage[CONTA];
+  //   return contas ? JSON.parse(contas) : [];
+  // }
+
+  listagemContas(): Conta[] { // deve retornar o vetor contas ordenado
     const contas = localStorage[CONTA];
+    let nomes: string[] = [];
+    let i: number = 0;
+    for (const conta of contas) {
+      nomes[i] = conta.nomeCliente;
+      i++;
+    }
     return contas ? JSON.parse(contas) : [];
   }
 
@@ -33,10 +44,17 @@ export class GerenteService {
     localStorage[CONTA] = JSON.stringify(contas);
   }
   
+  removerCliente(cpf: string): void {
+    let clientes: Cliente[] = this.listagemClientes();
 
-  aprovaCliente(){}
-  rejeitaCliente(){}
-  consultaTodosClientes(){}
-  consultaCliente(){}
-  consultaTresMelhores(){}
+    clientes = clientes.filter(cliente => cliente.cpf !== cpf);
+    localStorage[CLIENTE] = JSON.stringify(clientes);
+  }
+
+  removerConta(cpf: string): void {
+    let contas: Conta[] = this.listagemContas();
+
+    contas = contas.filter(conta => conta.cpfCliente !== cpf);
+    localStorage[CONTA] = JSON.stringify(contas);
+  }
 }

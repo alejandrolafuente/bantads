@@ -30,6 +30,8 @@ export class Conta {
         public cpfGerente?: string, // Cliente
         public saldoCliente?: number,
         public salario?: number, // mais tarde importar a classe Cliente 
+        public cidade?: string,
+        public estado?: string
         ){}
 }
 

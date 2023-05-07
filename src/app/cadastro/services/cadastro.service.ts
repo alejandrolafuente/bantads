@@ -29,7 +29,7 @@ export class CadastroService {
     localStorage[CHAVE_CLIENTE] = JSON.stringify(clientes);
 
     let conta = new Conta(new Date().getTime(), Math.floor(Math.random() * (100 - 1 + 1)) + 1, new Date, 
-      cliente.nome, cliente.cpf, cliente.salario, "", "",cliente.salario,cliente.salario);
+      cliente.nome, cliente.cpf, cliente.salario, "", "",cliente.salario,cliente.salario, cliente.cidade, cliente.estado);
 
     const contas = this.listagemContas();
     contas.push(conta);
