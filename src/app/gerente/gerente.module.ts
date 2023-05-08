@@ -5,11 +5,13 @@ import { HomeGerenteComponent } from './home-gerente/home-gerente.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
+import { VerClienteComponent } from './ver-cliente/ver-cliente.component';
 
 @NgModule({
   declarations: [
     HomeGerenteComponent,
-    ListarClientesComponent
+    ListarClientesComponent,
+    VerClienteComponent
   ],
   imports: [
     CommonModule,

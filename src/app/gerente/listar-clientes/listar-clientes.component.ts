@@ -7,17 +7,18 @@ import { GerenteService } from '../services';
   templateUrl: './listar-clientes.component.html',
   styleUrls: ['./listar-clientes.component.css']
 })
-export class ListarClientesComponent implements OnInit{
+export class ListarClientesComponent implements OnInit {
 
   contas: Conta[] = [];
 
-  constructor(private gerenteService: GerenteService) {}
+  constructor(private gerenteService: GerenteService) { }
 
   ngOnInit(): void {
-      this.contas = this.listarTodos();
+    this.contas = this.listarTodos();
   }
 
-  listarTodos(): Conta[]{
+
+  listarTodos(): Conta[] {
     return this.gerenteService.listagemContas();
   }
 

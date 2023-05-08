@@ -21,15 +21,22 @@ export class GerenteService {
   //   return contas ? JSON.parse(contas) : [];
   // }
 
-  listagemContas(): Conta[] { // deve retornar o vetor contas ordenado
-    const contas = localStorage[CONTA];
-    let nomes: string[] = [];
-    let i: number = 0;
-    for (const conta of contas) {
-      nomes[i] = conta.nomeCliente;
-      i++;
+  listagemContas(): Conta[] {
+    const contasString = localStorage[CONTA];
+    let contas: Conta[] = [];
+  
+    if (contasString) {
+      contas = JSON.parse(contasString);
+  
+      contas.sort((a, b) => {
+        const nomeClienteA = a.nomeCliente || '';
+        const nomeClienteB = b.nomeCliente || '';
+  
+        return nomeClienteA.localeCompare(nomeClienteB);
+      });
     }
-    return contas ? JSON.parse(contas) : [];
+  
+    return contas;
   }
 
   inserirCliente(cliente: Cliente): void{
@@ -56,5 +63,15 @@ export class GerenteService {
 
     contas = contas.filter(conta => conta.cpfCliente !== cpf);
     localStorage[CONTA] = JSON.stringify(contas);
+  }
+
+  buscarClientePorCPF(cpf: string): Cliente | undefined {
+    const clientes: Cliente[] = this.listagemClientes();
+    return clientes.find(cliente => cliente.cpf === cpf);
+  }
+
+  buscarContaPorCPF(cpf: string): Conta | undefined {
+    const contas: Conta[] = this.listagemContas();
+    return contas.find(conta => conta.cpfCliente === cpf);
   }
 }

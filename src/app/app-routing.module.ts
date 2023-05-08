@@ -16,6 +16,7 @@ import { ConsultarExtratoComponent } from './cliente/consultar-extrato/consultar
 import { AlterarDadosComponent } from './cliente/alterar-dados/alterar-dados.component';
 import { InserirSolicitacaoComponent } from './cadastro/inserir-solicitacao/inserir-solicitacao.component';
 import { ListarClientesComponent } from './gerente/listar-clientes/listar-clientes.component';
+import { VerClienteComponent } from './gerente/ver-cliente/ver-cliente.component';
 
 const routes: Routes = [
   {
@@ -126,6 +127,13 @@ const routes: Routes = [
   },
   { path: 'gerente/listar-clientes', 
     component: ListarClientesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'GERENTE'
+    }
+  },
+  { path: 'gerente/ver-cliente/:cpf', 
+    component: VerClienteComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'GERENTE'

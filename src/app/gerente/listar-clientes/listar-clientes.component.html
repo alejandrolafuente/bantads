@@ -5,7 +5,7 @@
             <div class="justify-content-end">
                 <p>
                     <label for="Pesquisar">Consultar Cliente <input class="form-control" id="myInput" type="text"
-                            placeholder="Search.."></label>
+                         placeholder="Search.."></label>
                     <button type="submit" class="btn btn-outline-primary">Pesquisar</button>
                 </p>
             </div>
@@ -29,7 +29,7 @@
                             <td>{{conta.cidade}}</td>
                             <td>{{conta.estado}}</td>
                             <td>{{conta.saldoCliente}}</td>
-                            <td><button type="submit" class="btn btn-outline-primary">Visualizar</button></td>
+                            <td><button type="submit" class="btn btn-outline-primary" [routerLink]="['/gerente/ver-cliente',conta.cpfCliente]">Visualizar</button></td>
                             <td><button type="submit" class="btn btn-xs btn-outline-danger mx-2" (click)="remover($event, conta)">Remover</button></td>
                         </tr>
                     </tbody>
