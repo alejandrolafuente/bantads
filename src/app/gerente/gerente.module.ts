@@ -6,12 +6,16 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ListarClientesComponent } from './listar-clientes/listar-clientes.component';
 import { VerClienteComponent } from './ver-cliente/ver-cliente.component';
+import { MelhoresClientesComponent } from './melhores-clientes/melhores-clientes.component';
+import { ConsultarClienteComponent } from './consultar-cliente/consultar-cliente.component';
 
 @NgModule({
   declarations: [
     HomeGerenteComponent,
     ListarClientesComponent,
-    VerClienteComponent
+    VerClienteComponent,
+    MelhoresClientesComponent,
+    ConsultarClienteComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,12 @@
+<body class="gradient">
+    <div class="container">
+        <div class="row box">
+            <h1 class="text-center">Consultar cliente:</h1><br><br>
+            <div class="justify-content-end">
+                <p>
+                    <label for="Pesquisar">Digite o CPF <input class="form-control" id="myInput" type="text"
+                         placeholder="buscar.." [(ngModel)]="cpf"></label>
+                    <button type="submit" class="btn btn-outline-primary" (click)="pesquisar()">Pesquisar</button>
+                </p>
+            </div>
+            

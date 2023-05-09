@@ -17,6 +17,8 @@ import { AlterarDadosComponent } from './cliente/alterar-dados/alterar-dados.com
 import { InserirSolicitacaoComponent } from './cadastro/inserir-solicitacao/inserir-solicitacao.component';
 import { ListarClientesComponent } from './gerente/listar-clientes/listar-clientes.component';
 import { VerClienteComponent } from './gerente/ver-cliente/ver-cliente.component';
+import { MelhoresClientesComponent } from './gerente/melhores-clientes/melhores-clientes.component';
+import { ConsultarClienteComponent } from './gerente/consultar-cliente/consultar-cliente.component';
 
 const routes: Routes = [
   {
@@ -134,6 +136,20 @@ const routes: Routes = [
   },
   { path: 'gerente/ver-cliente/:cpf', 
     component: VerClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'GERENTE'
+    }
+  },
+  { path: 'gerente/melhores-clientes', 
+    component: MelhoresClientesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'GERENTE'
+    }
+  },
+  { path: 'gerente/consultar-cliente', 
+    component: ConsultarClienteComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'GERENTE'

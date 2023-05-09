@@ -28,7 +28,7 @@
               <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#"
                 routerLink="cliente/deposito">
                 <button class="btn btn-sidebar text-left">
-                  <i class="fa-solid fa-credit-card me-2" data-width="24" data-height="24"></i>
+                  <i class="fa-solid fa-money-bill me-2" data-width="24" data-height="24"></i>
                   Depósito
                 </button>
               </a>
@@ -36,7 +36,7 @@
               <!--Saque-->
               <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#" routerLink="cliente/saque">
                 <button class="btn btn-sidebar text-left">
-                  <i class="fa-solid fa-credit-card me-2" data-width="24" data-height="24"></i>
+                  <i class="fa-solid fa-money-bill me-2" data-width="24" data-height="24"></i>
                   Saque
                 </button>
               </a>
@@ -45,7 +45,7 @@
               <a *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item nav-link" href="#"
                 routerLink="cliente/transferencia">
                 <button class="btn btn-sidebar text-left">
-                  <i class="fa-solid fa-credit-card me-2" data-width="24" data-height="24"></i>
+                  <i class="fa-solid fa-money-bill me-2" data-width="24" data-height="24"></i>
                   Transferência
                 </button>
               </a>
@@ -77,7 +77,7 @@
                 </button>
               </a>
 
-              <!--Depósito-->
+              <!--Lista Todos os Clientes-->
               <a *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item nav-link" href="#"
                 routerLink="gerente/listar-clientes">
                 <button class="btn btn-sidebar text-left">
@@ -86,6 +86,50 @@
                 </button>
               </a>
 
+              <!--Top 3 Clientes-->
+              <a *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item nav-link" href="#"
+                routerLink="gerente/melhores-clientes">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-people-group me-2" data-width="24" data-height="24"></i>
+                  Top 3
+                </button>
+              </a>
+
+              <!--Top 3 Clientes-->
+              <a *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item nav-link" href="#"
+                routerLink="gerente/consultar-cliente">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-person me-2" data-width="24" data-height="24"></i>
+                  Consultar Cliente
+                </button>
+              </a>
+
+              <!-------------------- Links  do Administrador ---------------------------------------------->
+
+              <a *ngIf="usuarioLogado.perfil==='ADMINISTRADOR'" class="nav-item nav-link" href="#"
+                routerLink="/administrador">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-home me-2" data-width="24" data-height="24"></i>
+                  Inicio
+                </button>
+              </a>
+
+              <a *ngIf="usuarioLogado.perfil==='ADMINISTRADOR'" class="nav-item nav-link" href="#"
+                routerLink="/administrador/listar">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-people-group me-2" data-width="24" data-height="24"></i>
+                  Gerentes
+                </button>
+              </a>
+
+              <a *ngIf="usuarioLogado.perfil==='ADMINISTRADOR'" class="nav-item nav-link" href="#"
+                routerLink="/administrador/relatorio">
+                <button class="btn btn-sidebar text-left">
+                  <i class="fa-solid fa-file me-2" data-width="24" data-height="24"></i>
+                  Relatorio de Clientes
+                </button>
+              </a>
+              <!------------------------------------------------------------------------------------------->
               <!--Nome do Usuário-->
               <a class="nav-item nav-link" href="#">
                 <button class="btn btn-sidebar text-left">

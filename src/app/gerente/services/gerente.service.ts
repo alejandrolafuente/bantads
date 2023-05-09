@@ -74,4 +74,30 @@ export class GerenteService {
     const contas: Conta[] = this.listagemContas();
     return contas.find(conta => conta.cpfCliente === cpf);
   }
+
+  listaTop3(): Conta[] {
+    const contasString = localStorage[CONTA];
+    let contas: Conta[] = [];
+  
+    if (contasString) {
+      contas = JSON.parse(contasString);
+  
+      contas.sort((a, b) => {
+        const saldoClienteA = a.saldoCliente?.toString();
+        const saldoClienteB = b.saldoCliente?.toString();
+  
+        if (saldoClienteA === undefined && saldoClienteB === undefined) {
+          return 0; // Se ambos forem undefined, consideramos como iguais
+        } else if (saldoClienteA === undefined) {
+          return -1; // Inverte a ordem para retornar em ordem decrescente
+        } else if (saldoClienteB === undefined) {
+          return 1; // Inverte a ordem para retornar em ordem decrescente
+        } else {
+          return saldoClienteB.localeCompare(saldoClienteA); // Inverte a ordem para retornar em ordem decrescente
+        }
+      });
+    }
+    return contas.slice(0, 3);;
+  }
+  
 }

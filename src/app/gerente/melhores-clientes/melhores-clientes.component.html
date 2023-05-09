@@ -1,0 +1,30 @@
+<body class="gradient">
+    <div class="container">
+        <div class="row box">
+            <h1 class="text-center">Melhores clientes</h1>
+            <div>
+
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col"> Saldo da conta </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let conta of contas">
+                            <td>{{conta.cpfCliente}}</td>
+                            <td>{{conta.nomeCliente}}</td>
+                            <td>{{conta.cidade}}</td>
+                            <td>{{conta.estado}}</td>
+                            <td>{{conta.saldoCliente}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p *ngIf="contas.length==0">Nenhum cliente cadastrado para o Gerente</p>
+                <div>
+                </div>
+            </div>

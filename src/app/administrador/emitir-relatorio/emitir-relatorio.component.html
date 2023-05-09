@@ -1,9 +1,5 @@
-<link rel="stylesheet" href="emitir-relatorio.component.css">
-
 <body class="gradient">
-
     <div class="container">
-        <span>Seja bem vindo Administrador!</span>
         <div class="row box">
             <h1 class="text-center">Relatorio de Clientes</h1><br>
             <div>
@@ -29,11 +25,5 @@
                 </table>
                 <p *ngIf="contas.length==0">Nenhum Cliente Cadastrado</p>
                 <div>
-                </div>
-
-
-
-                <div class="btn-group" role="group" aria-label="botoes">
-                    <button type="button" class="btn btn-primary d-inline-block mx-2" [routerLink]="['/administrador']">Voltar</button>
                 </div>
             </div>
